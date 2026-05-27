@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="qlsv" Class="databaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-ED6VL6C;Initial Catalog=qlsv;Integrated Security=True;Trust Server Certificate=True" SettingsObjectName="WindowsFormsApp2.Properties.Settings" SettingsPropertyName="qlsvConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.dbo_tbl_lophocs" Member="dbo_tbl_lophocs">
+    <Type Name="dbo_tbl_lophoc">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ngay" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="maid" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="malop" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="tenlop" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="mssv" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="ghichu" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dbo_tbl_sinhviens" Member="dbo_tbl_sinhviens">
+    <Type Name="dbo_tbl_sinhvien">
+      <Column Name="MSSV" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Hoten" Type="System.String" DbType="NChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ngaysinh" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="lop" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="gioitinh" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

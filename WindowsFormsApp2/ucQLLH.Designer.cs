@@ -52,6 +52,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -110,7 +112,7 @@
             this.button6.BackColor = System.Drawing.Color.Blue;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button6.Location = new System.Drawing.Point(55, 514);
+            this.button6.Location = new System.Drawing.Point(55, 568);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(299, 48);
             this.button6.TabIndex = 42;
@@ -139,7 +141,7 @@
             // 
             this.button5.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(212, 444);
+            this.button5.Location = new System.Drawing.Point(212, 498);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(142, 48);
             this.button5.TabIndex = 40;
@@ -150,7 +152,7 @@
             // 
             this.button4.BackColor = System.Drawing.Color.Red;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(55, 444);
+            this.button4.Location = new System.Drawing.Point(55, 498);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(142, 48);
             this.button4.TabIndex = 39;
@@ -162,7 +164,7 @@
             this.button3.BackColor = System.Drawing.Color.SeaGreen;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button3.Location = new System.Drawing.Point(212, 381);
+            this.button3.Location = new System.Drawing.Point(212, 435);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(142, 48);
             this.button3.TabIndex = 38;
@@ -174,12 +176,13 @@
             this.button2.BackColor = System.Drawing.Color.DodgerBlue;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(55, 381);
+            this.button2.Location = new System.Drawing.Point(55, 435);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(142, 48);
             this.button2.TabIndex = 37;
             this.button2.Text = "Thêm";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -207,9 +210,12 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(611, 378);
             this.dataGridView1.TabIndex = 34;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.dateTimePicker1);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.richTextBox1);
             this.panel1.Controls.Add(this.textBox3);
             this.panel1.Controls.Add(this.textBox2);
@@ -220,12 +226,12 @@
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Location = new System.Drawing.Point(55, 50);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(299, 310);
+            this.panel1.Size = new System.Drawing.Size(299, 361);
             this.panel1.TabIndex = 33;
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(20, 230);
+            this.richTextBox1.Location = new System.Drawing.Point(20, 283);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(246, 56);
             this.richTextBox1.TabIndex = 8;
@@ -248,7 +254,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(17, 202);
+            this.label7.Location = new System.Drawing.Point(17, 255);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(54, 16);
             this.label7.TabIndex = 5;
@@ -288,6 +294,22 @@
             this.textBox1.Size = new System.Drawing.Size(246, 22);
             this.textBox1.TabIndex = 0;
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(21, 218);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(246, 22);
+            this.dateTimePicker1.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(18, 199);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(70, 16);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Ngày sinh:";
+            // 
             // ucQLLH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -310,6 +332,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "ucQLLH";
             this.Size = new System.Drawing.Size(1038, 664);
+            this.Load += new System.EventHandler(this.ucQLLH_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -344,5 +367,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label1;
     }
 }
