@@ -41,6 +41,20 @@ namespace WindowsFormsApp2
             }
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            int mssv = int.Parse(textBox1.Text);
+
+            var sinhvien = db.dbo_tbl_sinhviens.FirstOrDefault(s => s.MSSV == mssv);
+            if (sinhvien != null)
+            {
+                db.dbo_tbl_sinhviens.DeleteOnSubmit(sinhvien);
+                db.SubmitChanges();
+                MessageBox.Show("Xóa thành công");
+                LoadData();
+            }
+        }
+
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
