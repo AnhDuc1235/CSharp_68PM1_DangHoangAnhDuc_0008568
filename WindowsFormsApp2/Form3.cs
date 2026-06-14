@@ -31,11 +31,21 @@ namespace WindowsFormsApp2
         private void quảnLýLớpHọcToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ucQLLH ucQLLH = new ucQLLH();
+            ucQLLH.classSelected += ucQLLH_to_ucQLSV;
             pnl_main.Controls.Clear();
             pnl_main.Controls.Add(ucQLLH);
             quảnLýLớpHọcToolStripMenuItem.ForeColor = Color.Red;
             quảnLýSinhViênToolStripMenuItem.ForeColor = Color.Black;
 
+        }
+
+        private void ucQLLH_to_ucQLSV(string malop)
+        {
+            ucQLSV ucQLSV = new ucQLSV(malop);
+            pnl_main.Controls.Clear();
+            pnl_main.Controls.Add(ucQLSV);
+            quảnLýLớpHọcToolStripMenuItem.ForeColor = Color.Black;
+            quảnLýSinhViênToolStripMenuItem.ForeColor = Color.Red;
         }
 
         private void quảnLýSinhViênToolStripMenuItem_Click(object sender, EventArgs e)

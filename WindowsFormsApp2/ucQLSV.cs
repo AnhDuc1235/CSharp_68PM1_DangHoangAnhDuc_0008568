@@ -25,6 +25,12 @@ namespace WindowsFormsApp2
             InitializeComponent();
         }
 
+        public ucQLSV(string malop)
+        {
+            InitializeComponent();
+            SelectedMalop = malop;
+        }
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
