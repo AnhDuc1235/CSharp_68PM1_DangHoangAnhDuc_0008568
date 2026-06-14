@@ -67,6 +67,7 @@
             this.button9.TabIndex = 47;
             this.button9.Text = ">";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button8
             // 
@@ -77,6 +78,7 @@
             this.button8.TabIndex = 46;
             this.button8.Text = ">>";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button7
             // 
@@ -87,6 +89,7 @@
             this.button7.TabIndex = 45;
             this.button7.Text = "<";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button10
             // 
@@ -97,6 +100,7 @@
             this.button10.TabIndex = 44;
             this.button10.Text = "<<";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // label6
             // 
@@ -147,6 +151,7 @@
             this.button5.TabIndex = 40;
             this.button5.Text = "Làm mới";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
@@ -158,6 +163,7 @@
             this.button4.TabIndex = 39;
             this.button4.Text = "Xóa";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -170,6 +176,7 @@
             this.button3.TabIndex = 38;
             this.button3.Text = "Sửa";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -192,6 +199,7 @@
             this.button1.TabIndex = 36;
             this.button1.Text = "Tìm";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // maskedTextBox1
             // 
@@ -211,6 +219,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(611, 378);
             this.dataGridView1.TabIndex = 34;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // panel1
             // 
