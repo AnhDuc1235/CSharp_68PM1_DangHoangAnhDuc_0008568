@@ -24,6 +24,23 @@ namespace WindowsFormsApp2
 
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            int mssv = int.Parse(textBox1.Text);
+
+            var sinhvien = db.dbo_tbl_sinhviens.FirstOrDefault(s => s.MSSV == mssv);
+            if (sinhvien != null)
+            {
+                sinhvien.Hoten = textBox2.Text;
+                sinhvien.ngaysinh = DateTime.Parse(dateTimePicker1.Text);
+                sinhvien.gioitinh = comboBox1.Text;
+                sinhvien.lop = comboBox2.SelectedValue.ToString();
+                db.SubmitChanges();
+                MessageBox.Show("Cập nhật thành công");
+                LoadData();
+            }
+        }
+
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
