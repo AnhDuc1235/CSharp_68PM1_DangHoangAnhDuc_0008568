@@ -24,6 +24,20 @@ namespace WindowsFormsApp2
 
         }
 
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+
+                textBox1.Text = row.Cells["MSSV"].Value?.ToString().Trim();
+                textBox2.Text = row.Cells["Hoten"].Value?.ToString().Trim();
+                dateTimePicker1.Text = row.Cells["ngaysinh"].Value?.ToString();
+                comboBox1.Text = row.Cells["gioitinh"].Value?.ToString().Trim();
+                comboBox2.Text = row.Cells["lop"].Value?.ToString().Trim();
+            }
+        }
+
         private void ucQLSV_Load(object sender, EventArgs e)
         {
             LoadData();
