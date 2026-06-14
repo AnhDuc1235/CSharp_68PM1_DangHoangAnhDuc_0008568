@@ -14,6 +14,12 @@ namespace WindowsFormsApp2
     public partial class ucQLSV : UserControl
     {
         databaseDataContext db = new databaseDataContext();
+
+        private int currentPage = 1;
+        private int pageSize = 5;
+        private int totalPage = 0;
+        private string SelectedMalop;
+
         public ucQLSV()
         {
             InitializeComponent();
@@ -103,8 +109,76 @@ namespace WindowsFormsApp2
         }
         public void LoadData()
         {
-            List<dbo_tbl_sinhvien> dssv = db.dbo_tbl_sinhviens.ToList();
-            dataGridView1.DataSource = dssv;
+            string keyword = maskedTextBox1.Text.Trim();
+
+            var query = db.dbo_tbl_sinhviens.AsQueryable();
+
+            if (!string.IsNullOrEmpty(SelectedMalop))
+            {
+                query = query.Where(x => x.lop == SelectedMalop);
+            }
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                query = query.Where(x =>
+                    x.Hoten.Contains(keyword) ||
+                    x.lop.Contains(keyword) ||
+                    x.MSSV.ToString().Contains(keyword));
+            }
+
+            totalPage = (int)Math.Ceiling((double)query.Count() / pageSize);
+            if (totalPage == 0) totalPage = 1;
+            if (currentPage > totalPage) currentPage = totalPage;
+            if (currentPage < 1) currentPage = 1;
+
+            dataGridView1.DataSource = query
+                .OrderBy(x => x.MSSV)
+                .Skip((currentPage - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+
+            button7.Enabled = currentPage > 1;
+            button9.Enabled = currentPage < totalPage;
+            button6.Enabled = currentPage != 1;
+            button8.Enabled = currentPage != totalPage;
+
+            label8.Text = $"Trang {currentPage}/{totalPage}";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            currentPage = 1;
+            LoadData();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            maskedTextBox1.Clear();
+            currentPage = 1;
+            LoadData();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            currentPage = 1;
+            LoadData();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            currentPage--;
+            LoadData();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            currentPage = totalPage;
+            LoadData();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            currentPage++;
+            LoadData();
         }
         public void loadDSSVCBX()
         {
